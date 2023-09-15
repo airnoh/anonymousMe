@@ -17,5 +17,6 @@ const router = Router();
 //   }
 // });
 router.post("/signup", authController.signup)
+router.get('/signin', authController.signin)
 
 module.exports = router;

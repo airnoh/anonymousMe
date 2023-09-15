@@ -15,6 +15,11 @@ if (userDB) {
 }
 }
 
-exports.login = async(req, res) => {
-    const userDB = await User.findOne({ username });
+exports.signin = async(req, res) => {
+    const { username, password } = req.body;
+   try {
+    const user = await User.login(username, password);res.status(200).send({user: user.username});
+   } catch (error) {
+     res.status(400)
+   }
 };
